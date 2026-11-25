@@ -35,7 +35,7 @@ type ServicesContent = {
 
 export const servicesContent: Localized<ServicesContent> = {
   en: {
-    title: 'Websites, online stores, motion and upgrades',
+    title: 'Websites, online stores, bots, motion and upgrades',
     deliverablesLabel: 'What you get',
     tagsLabel: 'Built with',
     items: [
@@ -61,6 +61,18 @@ export const servicesContent: Localized<ServicesContent> = {
           'Products and orders stored in a database, ready to grow with you',
         ],
         tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Server Actions'],
+      },
+      {
+        title: 'Telegram bots',
+        description:
+          'When it is easier for your clients to message you in Telegram than to open a website: the bot takes requests and bookings, answers common questions and notifies you right away.',
+        deliverables: [
+          'Bookings, requests and orders right in the chat — with buttons instead of long back-and-forth',
+          'A notification about every new request to you or to your team chat',
+          'Answers to common questions: prices, address, opening hours',
+          'A link to your website and database, so requests from the bot and the site end up in one place',
+        ],
+        tags: ['Telegram Bot API', 'Node.js', 'TypeScript', 'PostgreSQL'],
       },
       {
         title: 'Motion and 3D',
@@ -124,7 +136,7 @@ export const servicesContent: Localized<ServicesContent> = {
     },
   },
   ru: {
-    title: 'Сайты, магазины, анимация и доработки',
+    title: 'Сайты, магазины, боты, анимация и доработки',
     deliverablesLabel: 'Что вы получите',
     tagsLabel: 'Технологии',
     items: [
@@ -150,6 +162,18 @@ export const servicesContent: Localized<ServicesContent> = {
           'Товары и заказы в базе данных\u00a0— с запасом на рост',
         ],
         tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Server Actions'],
+      },
+      {
+        title: 'Telegram-боты',
+        description:
+          'Когда клиентам проще написать в Telegram, чем открывать сайт: бот принимает заявки и записи, отвечает на частые вопросы и сразу сообщает вам.',
+        deliverables: [
+          'Запись, заявки и заказы прямо в чате — кнопками, без долгой переписки',
+          'Уведомление о каждой новой заявке вам или в рабочий чат команды',
+          'Ответы на частые вопросы: цены, адрес, часы работы',
+          'Связку с сайтом и базой данных, чтобы заявки из бота и с сайта были в одном месте',
+        ],
+        tags: ['Telegram Bot API', 'Node.js', 'TypeScript', 'PostgreSQL'],
       },
       {
         title: 'Анимация и 3D',
