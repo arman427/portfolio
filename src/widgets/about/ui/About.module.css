@@ -1,0 +1,62 @@
+.about {
+  padding-block: var(--section-space);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px;
+}
+
+.text {
+  display: grid;
+  gap: 20px;
+  max-width: 40rem;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+/* The first paragraph carries the story, so it reads in the primary color */
+.text p:first-child {
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.stats {
+  border-top: 1px solid var(--line);
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.figure {
+  font-size: clamp(2.25rem, 1.9rem + 1vw, 2.75rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+
+@media (min-width: 1024px) {
+  .body {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 64px;
+  }
+}

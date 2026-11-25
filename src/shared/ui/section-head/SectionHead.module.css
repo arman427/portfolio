@@ -1,0 +1,33 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.title {
+  max-width: 22ch;
+  font-size: var(--fs-title);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--text-2);
+}
+
+.paper .lead {
+  color: var(--paper-text-2);
+}
+
+@media (min-width: 1024px) {
+  .head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+    gap: 64px;
+    margin-bottom: 64px;
+  }
+}

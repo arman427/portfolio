@@ -1,0 +1,10 @@
+.reveal[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal[data-reveal="shown"] {
+  transition:
+    opacity var(--t-enter) var(--ease),
+    transform var(--t-enter) var(--ease);
+}

@@ -1,0 +1,39 @@
+.frame {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  background-color: var(--bg-card);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding-inline: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 16px frame − 8px inset = 8px radius */
+.address {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  max-width: 440px;
+  height: 28px;
+  padding-inline: 12px;
+  border-radius: 8px;
+  background-color: var(--bg-deep);
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+}
+
+.screen img {
+  object-fit: cover;
+  object-position: top;
+}

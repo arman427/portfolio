@@ -1,0 +1,122 @@
+.work {
+  padding-block: var(--section-space);
+}
+
+.list {
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-block: 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.kicker {
+  font-size: var(--fs-meta);
+  color: var(--text-3);
+}
+
+.title {
+  font-size: var(--fs-heading);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  max-width: 28rem;
+  color: var(--text-2);
+}
+
+.stack {
+  max-width: 28rem;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  line-height: 1.7;
+  color: var(--text-3);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 8px;
+  font-size: var(--fs-small);
+}
+
+.media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  gap: 16px;
+}
+
+.windowLink {
+  display: block;
+  border-radius: var(--r-lg);
+}
+
+.windowLink > div {
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.windowLink:hover > div {
+  border-color: rgb(242 239 233 / 0.24);
+}
+
+/* 24px phone − 6px bezel = 18px screen */
+.phone {
+  display: none;
+  padding: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 24px;
+  background-color: var(--bg-card);
+}
+
+.phoneScreen {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  overflow: hidden;
+  border-radius: 18px;
+  background-color: var(--bg-deep);
+}
+
+.phoneScreen img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding-top: 32px;
+  color: var(--text-2);
+}
+
+@media (min-width: 1024px) {
+  .item {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 48px;
+    padding-block: 64px;
+  }
+
+  .media {
+    grid-template-columns: minmax(0, 1fr) 164px;
+  }
+
+  .phone {
+    display: block;
+  }
+}

@@ -1,0 +1,56 @@
+/*
+ * The signature of the site: something that is live right now — a project's
+ * address, the availability status. A steady dot, never pulsing.
+ */
+.live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    line-height: 1.2;
+    color: var(--text-2);
+}
+
+.live::before {
+    content: "";
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--live);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 50%, transparent);
+    animation: livePulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 55%, transparent);
+    }
+
+    70% {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--live) 0%, transparent);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 0%, transparent);
+    }
+}
+
+.mono {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-label);
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+a.live {
+    transition: color var(--t-fast) var(--ease);
+}
+
+a.live:hover {
+    color: var(--text);
+}

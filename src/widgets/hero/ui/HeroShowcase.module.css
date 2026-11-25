@@ -1,0 +1,101 @@
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 6px 6px 0;
+  overflow-x: auto;
+  background-color: var(--bg-deep);
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding-inline: 12px;
+  border-radius: 8px 8px 0 0;
+  font-size: var(--fs-meta);
+  line-height: 1;
+  color: var(--text-3);
+  white-space: nowrap;
+  transition:
+    color var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease);
+}
+
+/* Each project's own brand color, like a favicon */
+.tab::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: var(--tab-color);
+}
+
+.tab:hover {
+  color: var(--text-2);
+}
+
+/* The open tab merges into the address bar; the brand orange marks it */
+.tab[aria-selected="true"] {
+  background-color: var(--bg-card);
+  color: var(--text);
+}
+
+.tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0 12px auto;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background-color: var(--accent);
+}
+
+/* Full container width: on desktop the screen is cropped to 2:1, so the window fits the viewport */
+@media (min-width: 1024px) {
+  .window .screen {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+}
+
+.screenLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.shot {
+  opacity: 0;
+  transition: opacity 300ms var(--ease);
+}
+
+.shot[data-active] {
+  opacity: 1;
+}
+
+.caption > a {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--text-2);
+}

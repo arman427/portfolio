@@ -1,0 +1,104 @@
+/*
+ * The intro screen of the home page. Its brand row sits exactly where the
+ * header's brand will be, so the name stays put when the screen lifts.
+ * The loading bar is the screen's own ::after, scaled by `--progress`.
+ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  background-color: var(--bg);
+  clip-path: inset(0 0 0 0);
+}
+
+.preloader::before,
+.preloader::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+}
+
+.preloader::before {
+  background-color: var(--line);
+}
+
+.preloader::after {
+  background-color: var(--accent);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--bg-deep);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.name {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .name {
+    display: inline;
+  }
+}
+
+.role {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+
+.bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.status {
+  padding-bottom: 12px;
+  font-size: var(--fs-small);
+}
+
+.counter {
+  font-family: var(--ff-mono);
+  font-size: clamp(4rem, 2.4rem + 7vw, 8.5rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+.percent {
+  margin-left: 0.08em;
+  font-size: 0.4em;
+  color: var(--text-3);
+}

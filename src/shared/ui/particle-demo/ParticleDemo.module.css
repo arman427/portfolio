@@ -1,0 +1,15 @@
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background-color: var(--bg-deep);
+  touch-action: pan-y;
+}
+
+.caption {
+  margin-top: 12px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  line-height: 1.5;
+}

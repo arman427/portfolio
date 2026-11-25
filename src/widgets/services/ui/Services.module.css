@@ -1,0 +1,243 @@
+/* The one light surface of the site: services and process read like a printed estimate */
+.services {
+  margin-inline: 8px;
+  padding-block: var(--section-space);
+  border-radius: var(--r-xl);
+  background-color: var(--paper);
+  color: var(--paper-text);
+}
+
+.services ::selection {
+  background-color: var(--accent);
+  color: var(--paper-text);
+}
+
+.services :focus-visible {
+  outline-color: var(--accent-ink);
+}
+
+/* The sheet is inset from the page edge; its content stays on the page grid */
+.services .inner {
+  padding-inline: calc(var(--page-pad) - 8px);
+}
+
+/* Accordion */
+.list {
+  border-top: 1px solid var(--paper-line);
+}
+
+.row {
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding-block: 24px;
+  text-align: left;
+  color: var(--paper-text);
+}
+
+.rowTitle {
+  font-size: var(--fs-heading);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--paper-text-3);
+  transition:
+    transform var(--t-menu) var(--ease),
+    color var(--t-fast) var(--ease);
+}
+
+.trigger:hover .chevron {
+  color: var(--paper-text);
+}
+
+.trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.panelInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-bottom: 40px;
+}
+
+.description {
+  max-width: 36rem;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+}
+
+.demo {
+  max-width: 560px;
+  margin-top: 32px;
+}
+
+.demoCaption {
+  color: var(--paper-text-3);
+}
+
+.subhead {
+  font-size: var(--fs-meta);
+  color: var(--paper-text-3);
+}
+
+.deliverables {
+  margin-top: 12px;
+  border-top: 1px solid var(--paper-line);
+}
+
+.deliverables li {
+  padding-block: 12px;
+  border-bottom: 1px solid var(--paper-line);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--paper-text-2);
+}
+
+.tagsHead {
+  margin-top: 24px;
+}
+
+.tags {
+  margin-top: 8px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  line-height: 1.7;
+  color: var(--paper-text-2);
+}
+
+/* Process */
+.process {
+  margin-top: 96px;
+}
+
+.processHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.processTitle {
+  font-size: var(--fs-title);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.processLead {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--paper-text-2);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.step {
+  position: relative;
+  padding-top: 24px;
+  border-top: 1px solid var(--paper-line-strong);
+}
+
+/* A milestone on the line; launch is the one in brand orange */
+.step::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--paper-text-3);
+}
+
+.step:last-child::before {
+  background-color: var(--accent-ink);
+}
+
+.when {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  color: var(--paper-text-3);
+}
+
+.step:last-child .when {
+  color: var(--accent-ink);
+}
+
+.stepTitle {
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.stepText {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--paper-text-2);
+}
+
+.stepList {
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: var(--fs-small);
+}
+
+@media (min-width: 640px) {
+  .services {
+    margin-inline: 12px;
+  }
+
+  .services .inner {
+    padding-inline: calc(var(--page-pad) - 12px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trigger {
+    padding-block: 32px;
+  }
+
+  .panelInner {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 64px;
+    padding-bottom: 48px;
+  }
+
+  .process {
+    margin-top: 128px;
+  }
+
+  .processHead {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+    gap: 64px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 64px;
+  }
+}

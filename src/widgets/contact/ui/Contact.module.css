@@ -1,0 +1,105 @@
+.contact {
+    padding-block: var(--section-space);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+}
+
+.title {
+    max-width: 18ch;
+    font-size: var(--fs-title);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+}
+
+.text {
+    max-width: 34rem;
+    margin-top: 24px;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    color: var(--text-2);
+}
+
+/* 16px card − 24px padding: the controls keep their own 10px radius */
+.card {
+    display: grid;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background-color: var(--bg-card);
+}
+
+.label {
+    font-size: var(--fs-meta);
+    color: var(--text-3);
+}
+
+.email {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: clamp(1rem, 0.85rem + 1vw, 1.625rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+    transition: transform 0.5s, color 0.3s;
+}
+
+.email:hover {
+    color: #dfdfdf;
+    transform: scale(0.99);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.socials {
+    display: grid;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-2);
+    transition: color 0.3s ease;
+}
+
+.social svg {
+    flex-shrink: 0;
+}
+
+.social:hover {
+    color: var(--text);
+}
+
+.handle {
+    margin-left: auto;
+    font-family: var(--ff-mono);
+    font-size: var(--fs-label);
+    color: var(--text-3);
+    transition: color var(--t-fast) var(--ease);
+}
+
+.social:hover .handle {
+    color: var(--text);
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: 64px;
+    }
+}

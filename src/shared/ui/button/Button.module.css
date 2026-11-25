@@ -1,0 +1,79 @@
+.button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    padding-inline: 20px;
+    border-radius: var(--r-md);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    will-change: transform;
+    transition:
+        background-color var(--t-fast) var(--ease),
+        color var(--t-fast) var(--ease),
+        box-shadow var(--t-fast) var(--ease),
+        transform var(--t-fast) var(--ease);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.button svg {
+    flex-shrink: 0;
+    opacity: 0.72;
+}
+
+.small {
+    height: 36px;
+    padding-inline: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* On the dark page */
+.primary {
+    background-color: var(--text);
+    color: var(--bg-deep);
+}
+
+.primary:hover {
+    background-color: #c7c7c7;
+    transform: scale(0.98);
+}
+
+.secondary {
+    background-color: var(--bg-raised);
+    color: var(--text);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.05),
+        inset 0 0 0 1px var(--line);
+}
+
+.secondary:hover {
+    background-color: var(--bg-hover);
+}
+
+/* On the paper sheet */
+.paper.primary {
+    background-color: var(--paper-text);
+    color: var(--paper);
+}
+
+.paper.primary:hover {
+    background-color: #000;
+}
+
+.paper.secondary {
+    background-color: var(--paper-raised);
+    color: var(--paper-text);
+    box-shadow: inset 0 0 0 1px var(--paper-line);
+}
+
+.paper.secondary:hover {
+    background-color: var(--paper-hover);
+}

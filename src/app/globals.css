@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Components use them through CSS Modules
+ * (`*.module.css` next to each component); Tailwind is kept for its reset.
+ *
+ * World: a developer's desk in the evening — a browser window with a client's
+ * live site. Warm dark neutrals, one paper sheet, the brand orange as a mark.
+ */
+:root {
+    color-scheme: dark;
+
+    /* Warm dark ramp */
+    --bg-deep: #12110f;
+    --bg: #161513;
+    --bg-card: #1c1a18;
+    --bg-raised: #262421;
+    --bg-hover: #2d2a27;
+    --text: #f2efe9;
+    --text-2: #aaa398;
+    --text-3: #8a847a;
+    --line: rgb(242 239 233 / 0.08);
+    --line-strong: rgb(242 239 233 / 0.14);
+
+    /* Paper ramp — the services sheet */
+    --paper: #f2efe9;
+    --paper-raised: #e8e2d7;
+    --paper-hover: #ded7ca;
+    --paper-text: #1f1b16;
+    --paper-text-2: #5e554a;
+    --paper-text-3: #756c60;
+    --paper-line: rgb(31 27 22 / 0.1);
+    --paper-line-strong: rgb(31 27 22 / 0.18);
+
+    /* Brand orange: the logo mark, selection, the active tab. Never a surface. */
+    --accent: #ff5a1f;
+    /* The same orange dark enough to be read as ink on paper */
+    --accent-ink: #b8360b;
+    /* "This site is live" */
+    --live: #4cc38a;
+
+    /* Type */
+    --ff-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+    --ff-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --fs-display: clamp(2.375rem, 1.6rem + 2.6vw, 4rem);
+    --fs-title: clamp(1.875rem, 1.45rem + 1.5vw, 2.75rem);
+    --fs-heading: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+    --fs-lead: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+    --fs-meta: 0.8125rem;
+    --fs-label: 0.75rem;
+
+    /* Layout */
+    --header-h: 64px;
+    --page-pad: 20px;
+    --content-max: 1344px;
+    /* Space above and below each section: 64 → 80 → 96 */
+    --section-space: 64px;
+
+    /* Radius: controls, tags, cards and windows, panels */
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 16px;
+    --r-xl: 20px;
+
+    /* Motion: one curve, a few durations */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --t-fast: 1200ms;
+    --t-menu: 200ms;
+    --t-enter: 450ms;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --page-pad: 32px;
+        --section-space: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --page-pad: 48px;
+        --section-space: 96px;
+    }
+}
+
+@layer base {
+    html {
+        /* Lenis locks scrolling with `overflow: clip` during page and language
+       transitions; the reserved gutter keeps the layout from jumping. */
+        scrollbar-gutter: stable;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--ff-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        overflow-x: clip;
+        font-size: var(--fs-body);
+        line-height: 1.6;
+        transition: opacity var(--t-menu) var(--ease);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 500;
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    ::selection {
+        background-color: var(--accent);
+        color: var(--bg-deep);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+        display: block;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    /* Typographic quotes follow the language of the text */
+    :root {
+        quotes: "“" "”" "‘" "’";
+    }
+
+    :root:lang(ru) {
+        quotes: "«" "»" "„" "“";
+    }
+}
+
+/*
+ * The one entrance on load: main content fades and rises once, with a small
+ * stagger set per element through `--enter-i`. Pure CSS, so nothing flashes
+ * before scripts run.
+ */
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+[data-enter] {
+    animation: enter var(--t-enter) var(--ease) both;
+    animation-delay: calc(60ms + var(--enter-i, 0) * 50ms);
+}
+
+/* On the home page the entrance waits until the preloader starts lifting. */
+body:has([data-preloader]:not([data-state="leaving"])) [data-enter] {
+    animation-play-state: paused;
+}
+
+/* A stored non-default language is applied after hydration: keep the page
+   hidden until the translated copy is in place, so English never flashes. */
+html.locale-pending body {
+    opacity: 0;
+}
+
+/* Lenis (mirrors lenis/dist/lenis.css) */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-enter] {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,10 @@
+.colon {
+    display: inline-block;
+    animation: blink 0.5s ease-in infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        opacity: 0.1;
+    }
+}

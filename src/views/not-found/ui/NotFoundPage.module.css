@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + 48px) 64px;
+}
+
+.code {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  color: var(--text-3);
+}
+
+.title {
+  margin-top: 16px;
+  font-size: var(--fs-title);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.text {
+  max-width: 28rem;
+  margin-top: 16px;
+  font-size: var(--fs-lead);
+  color: var(--text-2);
+}
+
+.action {
+  margin-top: 32px;
+}

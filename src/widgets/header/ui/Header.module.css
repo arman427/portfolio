@@ -1,0 +1,195 @@
+.header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    height: var(--header-h);
+    border-bottom: 1px solid transparent;
+    background-color: rgb(22 21 19 / 0.75);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(10px);
+    transition: border-color var(--t-fast) var(--ease);
+}
+
+.header[data-scrolled] {
+    border-bottom-color: var(--line);
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 100%;
+}
+
+.brand {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* The flat brand mark: initials on the brand orange */
+.mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--bg-deep);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.name {
+    display: none;
+}
+
+.nav {
+    display: none;
+}
+
+/*
+ * Two identical pills sit under the links, positioned by useNavPills:
+ * ::before marks the section in view, ::after follows the pointer.
+ * A visible pill slides to its next item across the ones in between;
+ * a hidden one snaps into place (`-snap`) and fades in.
+ */
+.navList {
+    --t-slide: 480ms;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    gap: 4px;
+}
+
+.navList::before,
+.navList::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    border-radius: 8px;
+    background-color: var(--bg-raised);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        transform var(--t-slide) var(--ease),
+        width var(--t-slide) var(--ease),
+        opacity var(--t-menu) var(--ease);
+}
+
+.navList::before {
+    width: var(--active-w, 0px);
+    transform: translateX(var(--active-x, 0px));
+}
+
+.navList::after {
+    width: var(--hover-w, 0px);
+    transform: translateX(var(--hover-x, 0px));
+}
+
+.navList[data-active]::before,
+.navList[data-hover]::after {
+    opacity: 1;
+}
+
+.navList[data-active-snap]::before,
+.navList[data-hover-snap]::after {
+    transition-property: opacity;
+}
+
+.navItem {
+    position: relative;
+    z-index: 1;
+    display: flex;
+}
+
+.navLink {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding-inline: 12px;
+    border-radius: 8px;
+    font-size: var(--fs-small);
+    color: var(--text-2);
+    transition: color var(--t-menu) var(--ease);
+}
+
+.navLink:hover,
+.navLink[aria-current] {
+    color: var(--text);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.actions .cta {
+    display: none;
+}
+
+.menuButton {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--bg-raised);
+    box-shadow: inset 0 0 0 1px var(--line);
+    color: var(--text);
+    transition: background-color var(--t-fast) var(--ease);
+}
+
+.burger line {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 400ms var(--ease);
+}
+
+.menuButton[aria-expanded="true"] .burger line:first-child {
+    transform: translateY(3px) rotate(45deg);
+}
+
+.menuButton[aria-expanded="true"] .burger line:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+.menuButton:hover {
+    background-color: var(--bg-hover);
+}
+
+@media (min-width: 480px) {
+    .name {
+        display: inline;
+    }
+}
+
+@media (min-width: 640px) {
+    .actions .cta {
+        display: inline-flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav {
+        display: block;
+        margin-inline: auto;
+    }
+
+    .actions {
+        margin-left: 0;
+    }
+
+    .menuButton {
+        display: none;
+    }
+}

@@ -1,0 +1,37 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition:
+    color var(--t-fast) var(--ease),
+    text-decoration-color var(--t-fast) var(--ease);
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
+}
+
+.link svg {
+  flex-shrink: 0;
+  color: var(--text-3);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.link:hover svg {
+  color: currentColor;
+}
+
+.paper {
+  color: var(--paper-text);
+  text-decoration-color: var(--paper-line-strong);
+}
+
+.paper svg {
+  color: var(--paper-text-3);
+}
