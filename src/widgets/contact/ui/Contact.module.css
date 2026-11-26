@@ -82,7 +82,7 @@
 }
 
 .social:hover {
-    color: var(--text);
+    color: #ffffff;
 }
 
 .handle {
@@ -94,8 +94,10 @@
 }
 
 .social:hover .handle {
-    color: var(--text);
+    color: #ffffff;
 }
+
+
 
 @media (min-width: 1024px) {
     .grid {
