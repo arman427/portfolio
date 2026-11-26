@@ -79,7 +79,9 @@ export function TransitionOverlay() {
               // Remounts the page (LocaleBoundary) with the new copy under the curtain.
               useLocaleStore.getState().setLocale(targetLocale);
             } else {
-              router.push(targetHref, { scroll: false });
+              // The #hash only picks the landing section (step 2) — keep it out of the address bar.
+              const { pathname: path, search } = new URL(targetHref, window.location.href);
+              router.push(path + search, { scroll: false });
             }
           },
         })

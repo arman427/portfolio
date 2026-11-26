@@ -182,7 +182,7 @@ export const projects: Project[] = [
     kind: 'Pet project',
     year: 2026,
     role: 'Frontend development',
-    stack: ['Next.js', 'GSAP', 'React Hook Form', 'Zod', 'Tailwind CSS', 'Server Actions', 'Swiper', 'IMask'],
+    stack: ['Next.js', 'GSAP', 'React Hook Form', 'Zod', 'Tailwind CSS', 'Server Actions', 'IMask'],
     links: { live: 'https://asphalt-vlg.vercel.app/' },
     domain: 'asphalt-vlg.vercel.app',
     color: '#f5a623',
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     challenge:
       'In construction a website is judged by one thing: does it bring requests. A visitor has to see quickly that the company handles their kind of site, understand the process and leave their contacts without extra phone calls.',
     solution:
-      'A bold yellow-and-black style borrowed from road machinery, services as cards over a site photo, and six work stages from request to handover. The estimate form asks only what the estimator needs: site type, load, current base and extra work. Both forms are validated with React Hook Form and Zod, the phone number gets a mask, and a Server Action sends the request by email with a toast confirming it.',
+      'A calm light palette with a road-sign orange accent, a hero photo of real Volgograd road works, services as photo cards and six work stages from request to handover. The estimate form asks only what the estimator needs: site type, load, current base and extra work. Both forms are validated with React Hook Form and Zod, the phone number gets a mask, and a Server Action sends the request by email with a toast confirming it.',
     features: [
       {
         title: 'Estimate request',

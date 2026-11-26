@@ -6,11 +6,11 @@ export const siteConfig = {
     name: "Arman Babayan",
     firstName: "Arman",
     role: "Next.js developer",
-    url: "https://alexmorozov.dev",
+    url: "https://armanbabayan.site",
     email: "babayananuta11@gmail.com",
     yandex: "arman.babayan.dev@yandex.ru",
-    location: "Moscow, Russia",
-    city: "Moscow",
+    location: "Volgograd, Russia",
+    city: "Volgograd",
     timezone: "Europe/Moscow",
     /** Shown next to the contacts. Set `isAvailable` to false to hide it. */
     availability: {
@@ -54,10 +54,8 @@ export const siteConfig = {
     ru: {
         firstName: "Арман",
         role: "Next.js-разработчик",
-        location: "Москва, Россия",
-        city: "Москва",
-        /** City in the genitive case — "разработчик из Москвы". */
-        cityFrom: "Москвы",
+        location: "Волгоград, Россия",
+        city: "Волгоград",
         availabilityLabel: "Открыт к предложениям",
     },
 } as const;

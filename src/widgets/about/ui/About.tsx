@@ -4,6 +4,7 @@ import { routes } from "@/shared/config/navigation";
 import { siteConfig } from "@/shared/config/site";
 import { useLocalized } from "@/shared/i18n";
 import { Container } from "@/shared/ui/container";
+import { CountUp } from "@/shared/ui/count-up";
 import { Reveal } from "@/shared/ui/reveal";
 import { Section } from "@/shared/ui/section";
 import { SectionHead } from "@/shared/ui/section-head";
@@ -50,13 +51,18 @@ export function About() {
                     </div>
 
                     <dl className={styles.stats}>
-                        {content.stats.map((stat) => (
-                            <div key={stat.label} className={styles.stat}>
+                        {/* Keyed by position, not label: switching the language
+                            must not remount the counters and replay them. */}
+                        {content.stats.map((stat, index) => (
+                            <div key={index} className={styles.stat}>
                                 <dt className={styles.label}>
                                     {stat.label}
                                 </dt>
                                 <dd className={styles.figure}>
-                                    {stat.value}
+                                    <CountUp
+                                        value={stat.value}
+                                        delay={index * 0.1}
+                                    />
                                     {stat.suffix}
                                 </dd>
                             </div>

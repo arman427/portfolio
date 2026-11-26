@@ -27,6 +27,9 @@ export function PageReady() {
     const { hash } = window.location;
     if (hash && useTransitionStore.getState().status === 'idle') {
       const frame = requestAnimationFrame(() => {
+        // Honour the deep link once, then drop the hash so a reload starts clean.
+        const { pathname: path, search } = window.location;
+        window.history.replaceState(window.history.state, '', path + search);
         const target = getHashTarget(hash);
         if (!target) return;
         // Pass a measured offset, not the element: Lenis resolves elements

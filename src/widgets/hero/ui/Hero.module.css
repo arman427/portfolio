@@ -1,107 +1,107 @@
 .hero {
-  padding-block: calc(var(--header-h) + 48px) var(--section-space);
+    padding-block: calc(var(--header-h) + 48px) var(--section-space);
 }
 
 /* First screen: who and what on the left, the person on the right */
 .top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
 }
 
 .intro {
-  font-size: var(--fs-small);
-  color: var(--text-2);
+    font-size: var(--fs-small);
+    color: var(--text-2);
 }
 
 .title {
-  max-width: 15ch;
-  margin-top: 20px;
-  font-size: var(--fs-display);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+    max-width: 15ch;
+    margin-top: 20px;
+    font-size: var(--fs-display);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
 }
 
 .lead {
-  max-width: 32rem;
-  margin-top: 24px;
-  font-size: var(--fs-lead);
-  line-height: 1.55;
-  color: var(--text-2);
+    max-width: 32rem;
+    margin-top: 24px;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    color: var(--text-2);
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
 }
 
 /* Phones: full width, square crop so the photo doesn't take a screen and a half */
 .portrait {
-  width: 100%;
+    width: 100%;
 }
 
 .photo {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background-color: var(--bg-card);
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background-color: var(--bg-card);
 }
 
 .photo img {
-  object-fit: cover;
-  object-position: center top;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .photoCaption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-  margin-top: 12px;
-  font-size: var(--fs-meta);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-top: 12px;
+    font-size: var(--fs-meta);
 }
 
 .time {
-  margin-left: auto;
-  font-family: var(--ff-mono);
-  font-size: var(--fs-label);
-  font-variant-numeric: tabular-nums;
-  color: var(--text-3);
+    margin-left: auto;
+    font-family: var(--ff-mono);
+    font-size: var(--fs-label);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-3);
 }
 
 /* The browser window under the first screen; it rises into place on scroll */
 .showcase {
-  margin-top: 64px;
+    margin-top: 64px;
 }
 
 .rise {
-  transform-origin: 50% 0;
-  will-change: transform;
+    transform-origin: 50% 0;
+    will-change: transform;
 }
 
 @media (min-width: 640px) {
-  .portrait {
-    width: min(100%, 400px);
-  }
+    .portrait {
+        width: min(100%, 500px);
+    }
 
-  .photo {
-    aspect-ratio: 4 / 5;
-  }
+    .photo {
+        aspect-ratio: 4 / 5;
+    }
 }
 
 @media (min-width: 1024px) {
-  .top {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    align-items: center;
-    gap: 64px;
-  }
+    .top {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        align-items: center;
+        gap: 64px;
+    }
 
-  .portrait {
-    justify-self: end;
-  }
+    .portrait {
+        justify-self: end;
+    }
 }
