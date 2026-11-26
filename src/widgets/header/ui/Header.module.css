@@ -5,6 +5,9 @@
     height: var(--header-h);
     border-bottom: 1px solid transparent;
     background-color: rgb(22 21 19 / 0.75);
+    /* The blur smooths the page grain underneath; the bar carries its own */
+    background-image: var(--grain);
+    background-size: var(--grain-size);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(10px);
     transition: border-color var(--t-fast) var(--ease);

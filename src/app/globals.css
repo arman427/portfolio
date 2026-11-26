@@ -39,6 +39,17 @@
     /* "This site is live" */
     --live: #4cc38a;
 
+    /*
+     * Grain: a 160px tile of fractal noise turned into specks by the alpha
+     * row of the colour matrix. Light specks for the dark ramp, ink specks for
+     * paper; each is tuned to the same visible strength (σ ≈ 3 of 255).
+     * Lays over a surface's own colour: `background-image: var(--grain)`.
+     * Screens (browser frames, phone mockups) stay clean on purpose.
+     */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+    --grain-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 9 -4.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.043'/%3E%3C/svg%3E");
+    --grain-size: 160px;
+
     /* Type */
     --ff-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
     --ff-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -79,6 +90,8 @@
     }
 }
 
+;
+
 @media (min-width: 1024px) {
     :root {
         --page-pad: 48px;
@@ -92,6 +105,8 @@
        transitions; the reserved gutter keeps the layout from jumping. */
         scrollbar-gutter: stable;
         background-color: var(--bg);
+        background-image: var(--grain);
+        background-size: var(--grain-size);
         color: var(--text);
         font-family: var(--ff-sans);
         -webkit-font-smoothing: antialiased;

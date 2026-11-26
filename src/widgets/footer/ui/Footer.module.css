@@ -2,6 +2,8 @@
     padding-block: 64px 32px;
     border-top: 1px solid var(--line);
     background-color: var(--bg-deep);
+    background-image: var(--grain);
+    background-size: var(--grain-size);
 }
 
 .top {

@@ -4,6 +4,8 @@
   padding-block: var(--section-space);
   border-radius: var(--r-xl);
   background-color: var(--paper);
+  background-image: var(--grain-ink);
+  background-size: var(--grain-size);
   color: var(--paper-text);
 }
 
