@@ -12,6 +12,7 @@ import { Container } from "@/shared/ui/container";
 import { Live } from "@/shared/ui/live";
 import { LocalTime } from "@/shared/ui/local-time";
 import { Section } from "@/shared/ui/section";
+import { VortexField } from "@/shared/ui/vortex-field";
 import { heroContent, heroPhotoSrc } from "../model/content";
 import { HeroShowcase } from "./HeroShowcase";
 import styles from "./Hero.module.css";
@@ -55,6 +56,7 @@ export function Hero() {
 
     return (
         <Section id="home" aria-labelledby="hero-title" className={styles.hero}>
+            <VortexField className={styles.field} />
             <Container className={styles.top}>
                 <div>
                     <p data-enter style={enter(0)} className={styles.intro}>

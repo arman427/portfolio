@@ -4,21 +4,17 @@
     padding-block: calc(var(--header-h) + 48px) var(--section-space);
 }
 
-/* A faint drafting grid under the first screen, fading out before the window */
-.hero::before {
-    content: "";
+/*
+ * A slow vortex street under the first screen (full bleed), fading out at the
+ * edges and before the window so the text and the showcase stay clean.
+ */
+.field {
     position: absolute;
     inset: 0 0 auto;
     z-index: -1;
     height: min(100svh, 980px);
-    background-image:
-        linear-gradient(to right, rgb(242 239 233 / 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(242 239 233 / 0.035) 1px, transparent 1px);
-    background-size: 64px 64px;
-    background-position: center top;
-    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 20%, transparent 100%);
-    mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 20%, transparent 100%);
-    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 100%);
 }
 
 /* First screen: who and what on the left, the person on the right */
